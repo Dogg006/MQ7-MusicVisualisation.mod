@@ -207,7 +207,19 @@
 	<aspectratio align="center" aligny="center">keep</aspectratio>
 	<visible>true</visible>
 	</control>
-	
+	<control type="multiimage" id="9989">
+	<left>44</left>
+	<top>-8</top>
+	<width>540</width>
+	<label></label>
+	<height>360</height>
+	<timeperimage>5000</timeperimage>
+	<randomize>true</randomize>
+	<imagepath fallback="DefaultExtraThumbs.png" background="true">$INFO[Skin.String(CustomMusicLogoPath)]nosong</imagepath>
+	<fadetime>FanartCrossFadeTime</fadetime>
+	<aspectratio align="center" aligny="center">keep</aspectratio>
+	<visible>IsEmpty(Window(12006).Property(trackstring))</visible>
+	</control>
 	<control type="image">
 	<left>0</left>
 	<top>-15</top>
@@ -274,7 +286,7 @@
 	<align>left</align>
 	<font>Font_subtitle</font>
 	<textcolor>FFFFFAF0</textcolor>
-	<label>$INFO[Window(12006).Property(trackstring)][COLOR=50FFFAF0] | [/COLOR]$INFO[Window(12006).Property(stationname)][COLOR=50FFFAF0] | [/COLOR]$INFO[MusicPlayer.Genre]</label>
+	<label>$INFO[Window(12006).Property(trackstring)][COLOR=50FFFAF0] | [/COLOR] $INFO[Window(12006).Property(albumtitle)] - $INFO[Window(12006).Property(year)][COLOR=50FFFAF0] | [/COLOR]$INFO[Window(12006).Property(stationname)][COLOR=50FFFAF0] | [/COLOR]$INFO[MusicPlayer.Genre]</label>
 	<scroll>true</scroll>
 	<scrollout>false</scrollout>
 	<visible>Player.IsInternetStream</visible>
@@ -441,7 +453,7 @@
 	<width>450</width>
 	<height>321</height>
 	<fadetime>200</fadetime>
-	<texture fallback="DefaultAudio.png" diffuse="thumb_cdcover_mask_cdart.png" background="true">$INFO[Skin.String(CustomMusicLogoPath)]$INFO[Player.Title]/cover1.png</texture>
+	<texture fallback="DefaultAudio.png" diffuse="thumb_cdcover_mask_cdart.png" background="true">$INFO[Skin.String(CustomMusicLogoPath)]$INFO[Player.Filename]/cover.png</texture>
 	<aspectratio align="left">keep</aspectratio>
 	<visible>Player.IsInternetStream+StringCompare(Control.GetLabel(9990),DefaultAlbumCover.png)</visible>
 	</control>
@@ -539,6 +551,7 @@
 	<label>$INFO[MusicPlayer.Album]</label>
 	<scroll>true</scroll>
 	<scrollout>false</scrollout>
+	<visible>!Player.IsInternetStream</visible>
 	</control>
 	<control type="label">
 	<!-- Nome do album -->
@@ -549,7 +562,7 @@
 	<align>left</align>
 	<font>Font_subtitle</font>
 	<textcolor>50FFFAF0</textcolor>
-	<label>$INFO[Window(12006).Property(stationname)]</label>
+	<label>$INFO[Window(12006).Property(albumtitle)][COLOR=50FFFAF0] | [/COLOR]$INFO[Window(12006).Property(year)][COLOR=50FFFAF0] | [/COLOR]$INFO[Window(12006).Property(stationname)]</label>
 	<scroll>true</scroll>
 	<scrollout>false</scrollout>
 	<visible>Player.IsInternetStream</visible>
@@ -693,8 +706,19 @@
 	<width>632</width>
 	<height>450</height>
 	<fadetime>200</fadetime>
-	<texture fallback="DefaultAudio.png" diffuse="thumb_cdcover_mask_cdart.png" background="true">$INFO[MusicPlayer.Cover]</texture>
+	<texture fallback="DefaultAudio.png" diffuse="thumb_cdcover_mask_cdart.png" background="true">$INFO[Player.FolderPath]folder.jpg</texture>
 	<aspectratio align="left">keep</aspectratio>
+	</control>
+	
+	<control type="image">
+	<left>30</left>
+	<top>-110</top>
+	<width>632</width>
+	<height>450</height>
+	<fadetime>200</fadetime>
+	<texture fallback="DefaultAudio.png" diffuse="thumb_cdcover_mask_cdart.png" background="true">$INFO[Skin.String(CustomMusicLogoPath)]$INFO[Player.Filename]/cover.png</texture>
+	<aspectratio align="left">keep</aspectratio>
+	<visible>Player.IsInternetStream</visible>
 	</control>
 	<control type="image">
 	<!-- reflexo -->
@@ -817,6 +841,7 @@
 	<shadowcolor>AA000000</shadowcolor>
 	<scroll>false</scroll>
 	<scrollout>false</scrollout>
+	<visible>!Player.IsInternetStream</visible>
 	</control>
 	<control type="label">	
 	<left>968</left>
@@ -825,7 +850,7 @@
 	<height>30</height>
 	<align>right</align>
 	<font>Font_list</font>
-	<label>$INFO[Window(12006).Property(stationname) ,] $INFO[MusicPlayer.Genre,| ,]</label>
+	<label>$INFO[Window(12006).Property(albumtitle),, |] $INFO[Window(12006).Property(year),, |] $INFO[Window(12006).Property(stationname)]</label>
 	<textcolor>88DDDDDD</textcolor>
 	<shadowcolor>AA000000</shadowcolor>
 	<scroll>false</scroll>
