@@ -185,7 +185,27 @@
 	<fadetime>200</fadetime>
 	<texture fallback="DefaultAudio.png" diffuse="thumb_cdcover_mask_cdart.png" background="true">$INFO[Skin.String(CustomMusicLogoPath)]$INFO[Player.Filename]/cover.png</texture>
 	<aspectratio align="left">keep</aspectratio>
-	<visible>Player.IsInternetStream+StringCompare(Control.GetLabel(9996),DefaultAlbumCover.png)</visible>
+	<visible>Player.IsInternetStream</visible>
+	</control>
+	<control type="image">
+	<left>1335</left>
+	<top>-30</top>
+	<width>525</width>
+	<height>366</height>
+	<fadetime>200</fadetime>
+	<texture diffuse="thumb_cdcover_mask_cdart.png" background="true">$INFO[Skin.String(CustomMusicLogoPath)]$INFO[Window.Property(artiststring)]/$INFO[Window.Property(albumtitle)]/folder.jpg</texture>
+	<aspectratio align="left">keep</aspectratio>
+	<visible>Player.IsInternetStream+!IsEmpty(Window(12006).Property(albumtitle))</visible>
+	</control>
+	<control type="image">
+	<left>1335</left>
+	<top>-30</top>
+	<width>525</width>
+	<height>366</height>
+	<fadetime>200</fadetime>
+	<texture diffuse="thumb_cdcover_mask_cdart.png" background="true">$INFO[Skin.String(CustomMusicLogoPath)]$INFO[Window.Property(artiststring)]/$INFO[Window.Property(albumtitle)]/cover.jpg</texture>
+	<aspectratio align="left">keep</aspectratio>
+	<visible>Player.IsInternetStream+!IsEmpty(Window(12006).Property(albumtitle))</visible>
 	</control>
 	<control type="image">
 	<left>21</left>
@@ -206,19 +226,6 @@
 	<fadetime>FanartCrossFadeTime</fadetime>
 	<aspectratio align="center" aligny="center">keep</aspectratio>
 	<visible>true</visible>
-	</control>
-	<control type="multiimage" id="9989">
-	<left>44</left>
-	<top>-8</top>
-	<width>540</width>
-	<label></label>
-	<height>360</height>
-	<timeperimage>5000</timeperimage>
-	<randomize>true</randomize>
-	<imagepath fallback="DefaultExtraThumbs.png" background="true">$INFO[Skin.String(CustomMusicLogoPath)]nosong</imagepath>
-	<fadetime>FanartCrossFadeTime</fadetime>
-	<aspectratio align="center" aligny="center">keep</aspectratio>
-	<visible>IsEmpty(Window(12006).Property(trackstring))</visible>
 	</control>
 	<control type="image">
 	<left>0</left>
@@ -286,7 +293,7 @@
 	<align>left</align>
 	<font>Font_subtitle</font>
 	<textcolor>FFFFFAF0</textcolor>
-	<label>$INFO[Window(12006).Property(trackstring)][COLOR=50FFFAF0] | [/COLOR] $INFO[Window(12006).Property(albumtitle)] - $INFO[Window(12006).Property(year)][COLOR=50FFFAF0] | [/COLOR]$INFO[Window(12006).Property(stationname)][COLOR=50FFFAF0] | [/COLOR]$INFO[MusicPlayer.Genre]</label>
+	<label>$INFO[Window(12006).Property(trackstring)][COLOR=50FFFAF0] | [/COLOR] $INFO[Window(12006).Property(albumtitle)] - $INFO[Window(12006).Property(year)][COLOR=50FFFAF0] | [/COLOR]$INFO[Window(12006).Property(stationname)][COLOR=50FFFAF0] | [/COLOR]</label>
 	<scroll>true</scroll>
 	<scrollout>false</scrollout>
 	<visible>Player.IsInternetStream</visible>
@@ -330,9 +337,9 @@
 	<height>36</height>
 	<align>left</align>
 	<aligny>top</aligny>
-	<textcolor>FFFFFAF0</textcolor>
-	<font>Font_header</font>
-	<label>$LOCALIZE[31333] $INFO[MusicPlayer.Channels][COLOR=50FFFAF0] | [/COLOR]$INFO[MusicPlayer.SampleRate,,KHZ][COLOR=50FFFAF0] | [/COLOR]$INFO[MusicPlayer.BitRate,,Kbps][COLOR=50FFFAF0] | [/COLOR]$INFO[MusicPlayer.BitsPerSample,,Bits]</label>
+    <textcolor>$INFO[Skin.String(colorheader)]</textcolor>
+    <font>Font_header</font>
+	<label>$LOCALIZE[31333] $INFO[MusicPlayer.Channels][COLOR=50FFFAF0] | [/COLOR]$INFO[MusicPlayer.SampleRate,, [COLOR=88DDDDDD]KHZ[/COLOR]][COLOR=50FFFAF0] | [/COLOR]$INFO[MusicPlayer.BitRate,, [COLOR=88DDDDDD]Kbps[/COLOR]][COLOR=50FFFAF0] | [/COLOR]$INFO[MusicPlayer.BitsPerSample,, [COLOR=88DDDDDD]Bits[/COLOR]]</label>
 	</control>
 	<!-- Barra de cache -->
 	<control type="progress">
@@ -447,7 +454,7 @@
 	<texture fallback="DefaultAudio.png" diffuse="thumb_cdcover_mask_cdart.png" background="true">$INFO[MusicPlayer.Cover]</texture>
 	<aspectratio align="left">keep</aspectratio>
 	</control>
-		<control type="image">
+	<control type="image">
 	<left>30</left>
 	<top>-60</top>
 	<width>450</width>
@@ -456,6 +463,26 @@
 	<texture fallback="DefaultAudio.png" diffuse="thumb_cdcover_mask_cdart.png" background="true">$INFO[Skin.String(CustomMusicLogoPath)]$INFO[Player.Filename]/cover.png</texture>
 	<aspectratio align="left">keep</aspectratio>
 	<visible>Player.IsInternetStream+StringCompare(Control.GetLabel(9990),DefaultAlbumCover.png)</visible>
+	</control>
+	<control type="image">
+	<left>30</left>
+	<top>-60</top>
+	<width>450</width>
+	<height>321</height>
+	<fadetime>200</fadetime>
+	<texture diffuse="thumb_cdcover_mask_cdart.png" background="true">$INFO[Skin.String(CustomMusicLogoPath)]$INFO[Window.Property(artiststring)]/$INFO[Window.Property(albumtitle)]/folder.jpg</texture>
+	<aspectratio align="left">keep</aspectratio>
+	<visible>Player.IsInternetStream+!IsEmpty(Window(12006).Property(albumtitle))</visible>
+	</control>
+	<control type="image">
+	<left>30</left>
+	<top>-60</top>
+	<width>450</width>
+	<height>321</height>
+	<fadetime>200</fadetime>
+	<texture diffuse="thumb_cdcover_mask_cdart.png" background="true">$INFO[Skin.String(CustomMusicLogoPath)]$INFO[Window.Property(artiststring)]/$INFO[Window.Property(albumtitle)]/cover.jpg</texture>
+	<aspectratio align="left">keep</aspectratio>
+	<visible>Player.IsInternetStream+!IsEmpty(Window(12006).Property(albumtitle))</visible>
 	</control>
 	<control type="image">
 	<left>1545</left>
@@ -570,7 +597,7 @@
 	<control type="label">
 	<left>518</left>
 	<top>192</top>
-	<width>600</width>
+	<width>675</width>
 	<height>36</height>
 	<align>left</align>
 	<aligny>top</aligny>
@@ -721,6 +748,26 @@
 	<visible>Player.IsInternetStream</visible>
 	</control>
 	<control type="image">
+	<left>30</left>
+	<top>-110</top>
+	<width>632</width>
+	<height>450</height>
+	<fadetime>200</fadetime>
+	<texture diffuse="thumb_cdcover_mask_cdart.png" background="true">$INFO[Skin.String(CustomMusicLogoPath)]$INFO[Window.Property(artiststring)]/$INFO[Window.Property(albumtitle)]/folder.jpg</texture>
+	<aspectratio align="left">keep</aspectratio>
+	<visible>Player.IsInternetStream+!IsEmpty(Window(12006).Property(albumtitle))</visible>
+	</control>
+	<control type="image">
+	<left>30</left>
+	<top>-110</top>
+	<width>632</width>
+	<height>450</height>
+	<fadetime>200</fadetime>
+	<texture diffuse="thumb_cdcover_mask_cdart.png" background="true">$INFO[Skin.String(CustomMusicLogoPath)]$INFO[Window.Property(artiststring)]/$INFO[Window.Property(albumtitle)]/cover.jpg</texture>
+	<aspectratio align="left">keep</aspectratio>
+	<visible>Player.IsInternetStream+!IsEmpty(Window(12006).Property(albumtitle))</visible>
+	</control>
+	<control type="image">
 	<!-- reflexo -->
 	<left>30</left>
 	<top>345</top>
@@ -810,7 +857,7 @@
 	<label>[COLOR=$INFO[Skin.String(colorheader)]]$INFO[MusicPlayer.TrackNumber,,. ][/COLOR]$INFO[MusicPlayer.Title]</label>
 	<textcolor>88DDDDDD</textcolor>
 	<shadowcolor>AA000000</shadowcolor>
-	<scroll>false</scroll>
+	<scroll>true</scroll>
 	<scrollout>false</scrollout>
 	<visible>!Player.IsInternetStream</visible>
 	</control>
@@ -868,6 +915,16 @@
 	<textcolor>$INFO[Skin.String(colorheader)]</textcolor>
 	<shadowcolor>AA000000</shadowcolor>
 	</control>
+	<!-- Uncomment if you want a clock 
+	<control type="label">
+	<left>1750</left>
+	<top>315</top>
+	<width>300</width>
+	<height>36</height>
+	<font>Font_button</font>
+	<label>$INFO[System.Time(hh:mm:ss)]</label>
+	<textcolor>$INFO[Skin.String(colorheader)]</textcolor>
+	</control> -->
 	<!-- Barra de cache -->
 	<control type="progress">
 	<left>705</left>
